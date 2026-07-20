@@ -11,4 +11,4 @@ services:
       - ./config:/opt/app/config
       - ./src:/opt/app/src
     ports:
-      - "1338:1337"
+      - "1338:1338"
