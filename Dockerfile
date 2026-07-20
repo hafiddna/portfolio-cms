@@ -6,6 +6,7 @@ ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
 COPY package.json package-lock.json ./
 RUN npm install -g node-gyp
+ENV SHARP_IGNORE_GLOBAL_LIBVIPS=1
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm ci --only=production
 ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
