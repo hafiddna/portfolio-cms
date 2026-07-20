@@ -48,9 +48,9 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
     config: {
       provider: 'aws-s3',
       providerOptions: {
-        forcePathStyle: true,
         baseUrl: env('STORAGE_PUBLIC_URL'),
         s3Options: {
+          forcePathStyle: true,
           credentials: {
             accessKeyId: env('STORAGE_ACCESS_KEY'),
             secretAccessKey: env('STORAGE_SECRET_KEY'),
@@ -63,8 +63,8 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
         },
       },
       security: {
-        csrf: true,
-        xss: true,
+        // csrf: true,
+        // xss: true,
         allowedTypes: allowedMediaTypes,
         deniedTypes: deniedExecutableTypes,
       },

@@ -13,6 +13,8 @@ const config: Core.Config.Middlewares = [
             "'self'",
             'https:',
             'http:',
+            // '192.168.1.19:8333',
+            // 'storage.multimaxima.xyz',
           ],
           'img-src': [
             "'self'",
