@@ -1,0 +1,14 @@
+services:
+  portfolio-cms:
+    container_name: portfolio-cms
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portfolio-cms:latest
+    restart: always
+    env_file: .env
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+    ports:
+      - "1338:1337"
