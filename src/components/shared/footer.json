@@ -8,12 +8,6 @@
     "copyright": {
       "type": "text",
       "required": true
-    },
-    "socmedItems": {
-      "type": "component",
-      "component": "shared.socmed-card",
-      "repeatable": true,
-      "required": true
     }
   },
   "config": {}

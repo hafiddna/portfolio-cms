@@ -20,25 +20,56 @@
       "targetField": "name",
       "required": true
     },
+    "description": {
+      "type": "string",
+      "required": true
+    },
     "photos": {
       "type": "media",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos",
         "audios"
       ]
     },
+    "address": {
+      "type": "string",
+      "required": false
+    },
+    "languages": {
+      "type": "component",
+      "component": "shared.language",
+      "repeatable": true
+    },
     "portfolioLink": {
       "type": "string",
-      "required": true
+      "required": false
+    },
+    "experiences": {
+      "type": "component",
+      "component": "shared.work-experience",
+      "repeatable": true,
+      "required": false
+    },
+    "educations": {
+      "type": "component",
+      "component": "shared.education",
+      "repeatable": true,
+      "required": false
+    },
+    "skills": {
+      "type": "component",
+      "component": "shared.skill",
+      "repeatable": true,
+      "required": false
     },
     "socmedItems": {
       "type": "component",
       "component": "shared.socmed-card",
       "repeatable": true,
-      "required": true
+      "required": false
     },
     "project_assignments": {
       "type": "relation",

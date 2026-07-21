@@ -16,14 +16,10 @@
     }
   },
   "attributes": {
-    "siteName": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
+    "mainProfile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team-member.team-member"
     },
     "favicon": {
       "type": "media",
@@ -37,15 +33,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "siteDescription": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
     },
     "footer": {
       "type": "component",

@@ -678,21 +678,11 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
+    mainProfile: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::team-member.team-member'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    siteDescription: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    siteName: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -718,6 +708,24 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    ctaText: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    featuredProject: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::project.project'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -732,6 +740,13 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       }>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -956,7 +971,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    galleries: Schema.Attribute.Media<
+    gallery: Schema.Attribute.Media<
       'images' | 'videos' | 'audios' | 'files',
       true
     > &
@@ -1029,9 +1044,14 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    address: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    educations: Schema.Attribute.Component<'shared.education', true>;
+    experiences: Schema.Attribute.Component<'shared.work-experience', true>;
+    languages: Schema.Attribute.Component<'shared.language', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1039,17 +1059,16 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    photos: Schema.Attribute.Media<'images' | 'videos' | 'audios', true> &
-      Schema.Attribute.Required;
-    portfolioLink: Schema.Attribute.String & Schema.Attribute.Required;
+    photos: Schema.Attribute.Media<'images' | 'videos' | 'audios', true>;
+    portfolioLink: Schema.Attribute.String;
     project_assignments: Schema.Attribute.Relation<
       'oneToMany',
       'api::project-assignment.project-assignment'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    skills: Schema.Attribute.Component<'shared.skill', true>;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
-    socmedItems: Schema.Attribute.Component<'shared.socmed-card', true> &
-      Schema.Attribute.Required;
+    socmedItems: Schema.Attribute.Component<'shared.socmed-card', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

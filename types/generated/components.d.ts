@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedEducation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_educations';
+  info: {
+    displayName: 'Education';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    place: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -7,8 +18,16 @@ export interface SharedFooter extends Struct.ComponentSchema {
   };
   attributes: {
     copyright: Schema.Attribute.Text & Schema.Attribute.Required;
-    socmedItems: Schema.Attribute.Component<'shared.socmed-card', true> &
-      Schema.Attribute.Required;
+  };
+}
+
+export interface SharedLanguage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_languages';
+  info: {
+    displayName: 'Language';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -78,6 +97,26 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSkill extends Struct.ComponentSchema {
+  collectionName: 'components_shared_skills';
+  info: {
+    displayName: 'Skill';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    gallery: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    technologies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::technology.technology'
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
@@ -119,17 +158,38 @@ export interface SharedSocmedCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedWorkExperience extends Struct.ComponentSchema {
+  collectionName: 'components_shared_work_experiences';
+  info: {
+    displayName: 'Work Experience';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    endDate: Schema.Attribute.Date;
+    startDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    team_role: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::team-role.team-role'
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'shared.education': SharedEducation;
       'shared.footer': SharedFooter;
+      'shared.language': SharedLanguage;
       'shared.media': SharedMedia;
       'shared.newsletter-card': SharedNewsletterCard;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
+      'shared.skill': SharedSkill;
       'shared.slider': SharedSlider;
       'shared.socmed-card': SharedSocmedCard;
+      'shared.work-experience': SharedWorkExperience;
     }
   }
 }

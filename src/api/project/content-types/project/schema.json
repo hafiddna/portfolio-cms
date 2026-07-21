@@ -34,7 +34,7 @@
       "targetField": "name",
       "required": false
     },
-    "galleries": {
+    "gallery": {
       "type": "media",
       "pluginOptions": {
         "i18n": {

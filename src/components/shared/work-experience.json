@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_work_experiences",
+  "info": {
+    "displayName": "Work Experience"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "team_role": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team-role.team-role"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -15,6 +15,38 @@
     }
   },
   "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "ctaText": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "featuredProject": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    },
     "newsletter": {
       "type": "component",
       "pluginOptions": {

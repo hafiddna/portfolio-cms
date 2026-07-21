@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_languages",
+  "info": {
+    "displayName": "Language"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
