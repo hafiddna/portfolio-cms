@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_members",
+  "info": {
+    "singularName": "team-member",
+    "pluralName": "team-members",
+    "displayName": "Team Member"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios"
+      ]
+    },
+    "portfolioLink": {
+      "type": "string",
+      "required": true
+    },
+    "socmedItems": {
+      "type": "component",
+      "component": "shared.socmed-card",
+      "repeatable": true,
+      "required": true
+    },
+    "project_assignments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-assignment.project-assignment",
+      "mappedBy": "team_member"
+    }
+  }
+}

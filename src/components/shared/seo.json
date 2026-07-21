@@ -20,7 +20,20 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "metaRobots": {
+      "type": "string",
+      "required": false
+    },
+    "keywords": {
+      "type": "string"
+    },
+    "structuredData": {
+      "type": "json",
+      "required": false
     }
   }
 }

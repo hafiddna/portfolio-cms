@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_shared_socmed_cards",
+  "info": {
+    "displayName": "Socmed Card"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "github",
+        "linkedIn",
+        "instagram",
+        "threads",
+        "email",
+        "phone",
+        "facebook",
+        "x",
+        "whatsapp",
+        "tiktok",
+        "spotify",
+        "pinterest"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  },
+  "config": {}
+}

@@ -33,11 +33,9 @@
         }
       },
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ]
     },
     "siteDescription": {
@@ -49,6 +47,17 @@
       },
       "required": true
     },
+    "footer": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.footer",
+      "repeatable": false,
+      "required": true
+    },
     "defaultSeo": {
       "type": "component",
       "pluginOptions": {
@@ -57,7 +66,8 @@
         }
       },
       "component": "shared.seo",
-      "repeatable": false
+      "repeatable": false,
+      "required": true
     }
   }
 }

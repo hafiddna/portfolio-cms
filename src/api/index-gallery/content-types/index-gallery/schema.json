@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "index_galleries",
+  "info": {
+    "singularName": "index-gallery",
+    "pluralName": "index-galleries",
+    "displayName": "Index Gallery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "assets": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}

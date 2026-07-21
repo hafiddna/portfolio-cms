@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_assignments",
+  "info": {
+    "singularName": "project-assignment",
+    "pluralName": "project-assignments",
+    "displayName": "Project Assignment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "project_assignments"
+    },
+    "team_member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team-member.team-member",
+      "inversedBy": "project_assignments"
+    },
+    "team_role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team-role.team-role",
+      "inversedBy": "project_assignments"
+    }
+  }
+}

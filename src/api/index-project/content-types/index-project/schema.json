@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "index_projects",
+  "info": {
+    "singularName": "index-project",
+    "pluralName": "index-projects",
+    "displayName": "Index Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    }
+  }
+}
